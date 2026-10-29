@@ -1,0 +1,129 @@
+/* Plan option. Every value comes from tokens.css, the same tokens as the Figma variables. */
+.plan-option-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.plan-option-group__label {
+  padding: 0;
+  margin-bottom: var(--space-sm);
+  font: 600 17px/24px Inter, system-ui, sans-serif;
+  color: var(--text-primary);
+}
+
+.plan-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  min-height: 72px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: inset 0 0 0 1px var(--border-subtle);
+  font-family: Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.plan-option:active { background: var(--bg-subtle); }
+
+.plan-option:has(input:checked) {
+  background: var(--action-secondary);
+  box-shadow: inset 0 0 0 2px var(--border-selected);
+}
+
+.plan-option:has(input:focus-visible) {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.plan-option[data-disabled] {
+  background: var(--bg-subtle);
+  cursor: not-allowed;
+}
+
+.plan-option__radio {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 0 0 2px var(--border-strong);
+}
+
+.plan-option:has(input:checked) .plan-option__radio {
+  background: radial-gradient(circle, var(--bg-surface) 4px, var(--action-primary) 4.5px);
+  box-shadow: none;
+}
+
+.plan-option[data-disabled] .plan-option__radio { box-shadow: inset 0 0 0 2px var(--border-subtle); }
+
+.plan-option__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.plan-option__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.plan-option__title { font: 600 17px/24px Inter, system-ui, sans-serif; color: var(--text-primary); }
+.plan-option__detail { font: 400 14px/20px Inter, system-ui, sans-serif; color: var(--text-secondary); }
+
+.plan-option__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+}
+
+.plan-option__amount {
+  font: 600 16px/24px Inter, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.plan-option__per { font: 400 14px/20px Inter, system-ui, sans-serif; color: var(--text-secondary); }
+
+.plan-option[data-disabled] .plan-option__title,
+.plan-option[data-disabled] .plan-option__amount { color: var(--text-secondary); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font: 600 12px/16px Inter, system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.badge--positive { background: var(--status-positive-bg); color: var(--status-positive-fg); }
+.badge--info { background: var(--status-info-bg); color: var(--status-info-fg); }
+.badge--warning { background: var(--status-warning-bg); color: var(--status-warning-fg); }
+.badge--danger { background: var(--status-danger-bg); color: var(--status-danger-fg); }
+.badge--ai { background: var(--bg-ai); color: var(--text-ai); }
+
+/* Found while coding: the selected card and the Info badge share blue/50, so the badge lost its shape. */
+.plan-option:has(input:checked) .badge--info { background: var(--bg-surface); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "plan-option",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --experimental-strip-types --no-warnings --test src/rules.test.ts",
+    "tokens": "node scripts/build-tokens.mjs",
+    "typecheck": "tsc",
+    "demo": "esbuild demo/demo.tsx --bundle --minify --outfile=demo/dist/demo.js --define:process.env.NODE_ENV='\"production\"'",
+    "connect:parse": "figma connect parse --skip-update-check",
+    "connect:preview": "node scripts/preview-template.mjs"
+  },
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "2.0.2",
+    "@types/node": "22.20.5",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  },
+  "description": "Plan option component from the Holiday Fund Figma file: React, design tokens, tests and a Code Connect template"
+}
